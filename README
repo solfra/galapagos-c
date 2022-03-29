@@ -22,7 +22,8 @@ lib directories.
 GALAPAGOS-C is tested using the module: openmpi-1.4.4
 
 On some machines, it is necessary to link the LD_LIBRARY_PATH to
-LD_LIBRARY_PATH=</path/to/your/cpl/lib>
+export LD_LIBRARY_PATH=</path/to/your/cpl/lib>
+It's may be necessary also to link the cfitsio library : export LD_LIBRARY_PATH=</path/to/your/cfitsio/lib>
 
 2. Install SExtractor and GALFIT
 
@@ -122,6 +123,7 @@ Use the version "ECLIPSE FOR PARALLEL DEVELOPERS"
     The project type must be "MPI Hello World C Project" and the Toolchain must be 
     "Linux GCC".
     Then click the "Finish" button.
+    Remove the file .c / .h created into this folder
 
 5.2 Open the workspace of your new C-Project, e.g. in the folder /path/to/GALAPAGOS-C
     and open the src folder. 
@@ -146,7 +148,7 @@ Use the version "ECLIPSE FOR PARALLEL DEVELOPERS"
 
 5.4.2 Link your CPL and OPENMPI libraries by clicking on "Libraries" 
       Add the libraries by clicking on the green "+" symbol
-      Add m, cplui, cplcore, cext, cpldrs
+      Add m, cplui, cplcore, cext, cpldrs (exacly this syntax, not libcplui.so !)
       Add the library seach paths below to your CPL library, your WCS library and your 
       OPENMPI library, e.g.
       /path/to/CPL/lib
@@ -158,7 +160,7 @@ Use the version "ECLIPSE FOR PARALLEL DEVELOPERS"
     Click on grey arrow next to the green "Play" Button on top an go to 
     "Run Configurations"
     Go to "Parallel Application" in the list and left click on "New"
-    Go to the list on the right and specify the number of processor under "Resources"
+    Go to the list on the right and specify the number of processor under "Resources" (at least minimum 2 cpu)
     Go to "Application" and link the path to your Debug Folder under "Application Program"
     Go to "Arguments" and enter the complete path to your GALAPAGOS-C setup file (e.g. gala.setup)
     	in speech marks
