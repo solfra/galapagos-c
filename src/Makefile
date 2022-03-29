@@ -6,7 +6,7 @@
 # !!!!! Replace all </path/to/...> !!!!!!!
 
 # Compiler deinition
-CC = mpicc
+CC = mpicc -lm
 
 # Compiler parameters
 CFLAGS = -g -O3 -Wall -std=c99 \
