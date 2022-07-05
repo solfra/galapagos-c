@@ -4,26 +4,26 @@
 
 #-------------------------------- Catalog ------------------------------------
 
-CATALOG_NAME     /home/andi/GALAPAGOS/STAGES23/outtab.fits       # Will be overwritten anyway! name of the output catalog
+CATALOG_NAME     /infinity_home/fs269899/primer356deep_disk/results/outtab.fits       # Will be overwritten anyway! name of the output catalog
 CATALOG_TYPE     ASCII_HEAD     # NONE,ASCII,ASCII_HEAD, ASCII_SKYCAT,
                                # ASCII_VOTABLE, FITS_1.0 or FITS_LDAC
-PARAMETERS_NAME  /home/andi/Desktop/Galatest/Setup/default.param  # Will be overwritten anyway! name of the file containing catalog contents
+PARAMETERS_NAME  /infinity_home/fs269899/primer356deep_disk/setup/default.param  # Will be overwritten anyway! name of the file containing catalog contents
 
 #------------------------------- Extraction ----------------------------------
 
 DETECT_TYPE      CCD            # CCD (linear) or PHOTO (with gamma correction)
-DETECT_MINAREA   45              # minimum number of pixels above threshold
+DETECT_MINAREA   10              # minimum number of pixels above threshold
 THRESH_TYPE      RELATIVE       # threshold type: RELATIVE (in sigmas)
                                 # or ABSOLUTE (in ADUs)
-DETECT_THRESH    1.5            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
-ANALYSIS_THRESH  1.5              # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+DETECT_THRESH    0.7            # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
+ANALYSIS_THRESH  0.7              # <sigmas> or <threshold>,<ZP> in mag.arcsec-2
 
 FILTER           Y              # apply filter for detection (Y or N)?
-FILTER_NAME      /home/andi/Desktop/Galatest/Setup/tophat_3.0_3x3.conv   # name of the file containing the filter
+FILTER_NAME      /dsm/opt/rhel-7.x86_64/gnu/sextractor/2.19.5/share/sextractor/gauss_4.0_7x7.conv   # name of the file containing the filter
 FILTER_THRESH                   # Threshold[s] for retina filtering
 
-DEBLEND_NTHRESH  32             # Number of deblending sub-thresholds
-DEBLEND_MINCONT  0.25          # Minimum contrast parameter for deblending
+DEBLEND_NTHRESH  64             # Number of deblending sub-thresholds
+DEBLEND_MINCONT  0.001          # Minimum contrast parameter for deblending
 
 CLEAN            Y              # Clean spurious detections? (Y or N)?
 CLEAN_PARAM      1.0            # Cleaning efficiency
@@ -35,7 +35,7 @@ MASK_TYPE        CORRECT        # type of detection MASKing: can be one of
 
 WEIGHT_TYPE      NONE           # type of WEIGHTing: NONE, BACKGROUND,
                                # MAP_RMS, MAP_VAR or MAP_WEIGHT
-WEIGHT_IMAGE     /home/andi/GALAPAGOS/STAGES23/a901-23-wht.fits    # Will be overwritten anyway! weight-map filename
+WEIGHT_IMAGE     /infinity_home/fs269899/primer356deep/img/egg-20220325-jwst-f356w-sci_weight.fits    # Will be overwritten anyway! weight-map filename
 WEIGHT_GAIN      Y              # modulate gain (E/ADU) with weights? (Y/N)
 WEIGHT_THRESH                   # weight threshold[s] for bad pixels
 
@@ -55,30 +55,30 @@ PHOT_AUTOAPERS   0.0,0.0        # <estimation>,<measurement> minimum apertures
                                # for MAG_AUTO and MAG_PETRO
 PHOT_FLUXFRAC    0.5            # flux fraction[s] used for FLUX_RADIUS
 
-SATUR_LEVEL      60000.0        # level (in ADUs) at which arises saturation
+SATUR_LEVEL      3900.0        # level (in ADUs) at which arises saturation
 SATUR_KEY        NOEXIT       # keyword for saturation level (in ADUs) - don't trust SATURATE
 
-MAG_ZEROPOINT    30.0            # magnitude zero-point
+MAG_ZEROPOINT    30            # magnitude zero-point
 MAG_GAMMA        4.0            # gamma of emulsion (for photographic scans)
 GAIN             1.0            # detector gain in e-/ADU
 GAIN_KEY         GAIN           # keyword for detector gain in e-/ADU
-PIXEL_SCALE      0.03            # size of pixel in arcsec (0=use FITS WCS info)
+PIXEL_SCALE      0.0315            # size of pixel in arcsec (0=use FITS WCS info)
 
 #------------------------- Star/Galaxy Separation ----------------------------
 
 SEEING_FWHM      0.1            # stellar FWHM in arcsec
-STARNNW_NAME     /home/andi/Desktop/Galatest/Setup/default.nnw    # Neural-Network_Weight table filename
+STARNNW_NAME     /infinity_home/fs269899/primer356deep_disk/setup/default.nnw    # Neural-Network_Weight table filename
 
 #------------------------------ Background -----------------------------------
 
 BACK_TYPE        AUTO           # AUTO or MANUAL
 #BACK_TYPE        MANUAL           # AUTO or MANUAL
 BACK_VALUE       3951.            # Default background value in MANUAL mode
-BACK_SIZE        50             # Background mesh: <size> or <width>,<height>
+BACK_SIZE        128             # Background mesh: <size> or <width>,<height>
 BACK_FILTERSIZE  5              # Background filter: <size> or <width>,<height>
 
 BACKPHOTO_TYPE   LOCAL         # can be GLOBAL or LOCAL
-BACKPHOTO_THICK  60             # thickness of the background LOCAL annulus
+BACKPHOTO_THICK  48             # thickness of the background LOCAL annulus
 BACK_FILTTHRESH  0.0            # Threshold above which the background-
                                # map filter operates
 
@@ -88,7 +88,7 @@ CHECKIMAGE_TYPE  NONE           # can be NONE, BACKGROUND, BACKGROUND_RMS,
                                # MINIBACKGROUND, MINIBACK_RMS, -BACKGROUND,
                                # FILTERED, OBJECTS, -OBJECTS, SEGMENTATION,
                                # or APERTURES
-CHECKIMAGE_NAME  /home/andi/Desktop/Galatest/check.fits     # Filename for the check-image
+CHECKIMAGE_NAME  /infinity_home/fs269899/primer356deep_disk/results/check.fits     # Filename for the check-image
 
 #--------------------- Memory (change with caution!) -------------------------
 
@@ -124,9 +124,9 @@ INTERP_TYPE      ALL            # Interpolation type: NONE, VAR_ONLY or ALL
 
 #--------------------------- Experimental Stuff -----------------------------
 
-PSF_NAME         /home/andi/Desktop/Galatest/Setup/psf_stages_v003_full255.fits     #/home/boris/megamorph/astro-megamorph/scripts_boris/megamorph/gala_setup/psfci_sdss_r_g09.fits    # File containing the PSF model
+PSF_NAME         /infinity_home/fs269899/   #/home/boris/megamorph/astro-megamorph/scripts_boris/megamorph/gala_setup/psfci_sdss_r_g09.fits    # File containing the PSF model
 PSF_NMAX         9              # Max.number of PSFs fitted simultaneously
 PSFDISPLAY_TYPE  SPLIT          # Catalog type for PSF-fitting: SPLIT or VECTOR
 PATTERN_TYPE     RINGS-HARMONIC # can RINGS-QUADPOLE, RINGS-OCTOPOLE,
                                # RINGS-HARMONICS or GAUSS-LAGUERRE
-SOM_NAME         /home/andi/GALAPAGOS/STAGES23/default.som    # File containing Self-Organizing Map weights
+SOM_NAME         /infinity_home/fs269899/primer356deep_disk/results/default.som    # File containing Self-Organizing Map weights
